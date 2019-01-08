@@ -8,11 +8,11 @@ import java.util.Date;
 
 
 
-public class Dairy {
+public class Diary {
     static String user;
     private static String pathname;
 
-    public Dairy(String user){
+    public Diary(String user){
         this.user = user;
         this.pathname = "./src/" + this.user + ".txt";
     }
