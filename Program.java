@@ -9,28 +9,28 @@ public class Program {
     public static void main(String[] args) {
         System.out.print("Welcome to your journal\nUser: ");
         String user = reader.nextLine();
-        Dairy diary = new Dairy(user.trim());
+        Diary diary = new Diary(user.trim());
 
         System.out.println("Insert your Entry: ");
-        ArrayList<String> entries = new ArrayList<String>();
-
-        while (true ){
-           String line =  reader.nextLine();
-           entries.add(line);
-            if (line.equals("end")){
-                entries.remove(entries.size()-1);
-                diary.insertEntry(entries);
-                break;
-            }
-
-
-
-        }
+        post(reader, diary);
         reader.close();
-//        Arrays.copyOfRange(entries, 0, entries.length - 2)
-
-
 
 
     }
+
+
+    public static void post(Scanner reader, Diary diary) {
+        ArrayList<String> entries = new ArrayList<String>();
+        while (true) {
+            String line = reader.nextLine();
+            entries.add(line);
+            if (line.toLowerCase().equals("end")) {
+                entries.remove(entries.size() - 1);
+                diary.insertEntry(entries);
+                break;
+            }
+        }
+
+    }
 }
+
